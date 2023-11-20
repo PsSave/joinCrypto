@@ -34,7 +34,7 @@
 }
 
 .main .header .info-header > h3{
-  margin: 1rem 0;
+  margin: 3rem 0 1rem 0;
 }
 
 .main .header .car-shop {
@@ -85,9 +85,44 @@
 .main .store h2{
   width: 100%;
   text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .main .store .cryptos {
+  display: grid;
+  grid-template-columns: 20rem 20rem;
+  gap: 3rem;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.main .store .cryptos .card {
+  border-radius: 10px;
+  background: linear-gradient(136deg, #1E272E -180.37%, #020202 244.92%);
   display: flex;
-  
+  padding: 14px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  transition: .2s ease-out;
+}
+.main .store .cryptos .card:hover {
+  box-shadow: 0 0  10px rgba(255, 255, 255, 0.212); 
+}
+.main .store .cryptos .card .tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+.main .store .cryptos .card .tag small {
+  border-radius: 4px;
+  background: #1A1C1F;
+  padding: .5rem;
 }
