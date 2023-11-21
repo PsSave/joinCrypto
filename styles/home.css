@@ -20,18 +20,20 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex: 1;
   width: 100%;
   background: linear-gradient(130deg, rgba(1, 24, 16, 0.685) 1.58%, rgb(25, 26, 29) 48%);
   padding: 2rem;
+
 }
 
 .main .header .logo {
   display: flex;
-  height: 120px;
   align-items: center;
   gap: .5rem;
   font-size: 14px
+  
 }
 
 .main .header .logo img {
@@ -39,8 +41,8 @@
   height: 40px;
 }
 .main .header .info-header{
-  padding: 1rem;
-  height: 55rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .main .header .info-header > h3{
@@ -57,18 +59,17 @@
   font-weight: 600;
   color: #fff;
   margin-top: 2rem;
-  transition: .2s ease-in-out;
   cursor: pointer;
+  width: 10rem;
+  transition: .2s ease-in-out;
 }
 
 .main .header .info-header button:hover {
-  box-shadow: 0 0  10px rgba(255, 255, 255, 0.212); 
-
+  background: linear-gradient(160deg, #212930 -180.37%, #0c0c0c 244.92%);
 }
 
 .main .header .car-shop {
   padding: .5rem;
-  height: 100%;
   display: flex;
   justify-content: end;
   flex-direction: column;
@@ -120,7 +121,7 @@
 
 .main .store .cryptos {
   display: grid;
-  grid-template-columns: 20rem 20rem;
+  grid-template-columns: 18rem 18rem;
   gap: 3rem;
   border-radius: 10px;
   padding: 2rem;
@@ -146,6 +147,9 @@
   gap: 16px;
   flex: 1 0 0;
   transition: .2s ease-out;
+}
+.card span {
+  height: 2rem;
 }
 .main .store .cryptos .card:hover {
   box-shadow: 0 0  10px rgba(255, 255, 255, 0.212); 
