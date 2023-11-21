@@ -28,7 +28,7 @@
 
 }
 
-.main .header .logo {
+.logo {
   display: flex;
   align-items: center;
   gap: .5rem;
@@ -36,7 +36,7 @@
   
 }
 
-.main .header .logo img {
+.logo img {
   width: 40px;
   height: 40px;
 }
