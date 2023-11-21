@@ -1,0 +1,90 @@
+
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 2rem;
+}
+
+.login h1 {
+  font-family: Work Sans;
+  font-size: 3.8rem;
+  font-weight: 600;
+  line-height: 4.5rem;
+}
+
+.login p {
+  font-family: Work Sans;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form label {
+  padding: 1.2rem .6rem 1.2rem .6rem;
+  display: block;
+}
+
+.form input[type="password"],
+.form input[type="email"],
+.form textarea {
+  padding: 1.2rem;
+  width: 38.6rem;
+  background: linear-gradient(136deg, #1E272E -180.37%, #020202 244.92%);
+  color: #fff;
+  border: .1rem solid #1a1c1f;
+  border-radius: .5rem;
+}
+
+.form input[type="password"]:focus,
+.form input[type="email"]:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: rgba(0, 230, 154, 0.10);
+}
+
+.botao-login {
+  width: 38.6rem;
+  height: 3.8rem;
+  border-radius: 3.6rem;
+  cursor: pointer;
+  background: #00E69A;
+  color: #151817;
+  border: none;
+  margin-top: 3rem;
+}
+
+.botao-login:hover {
+  background: rgba(0, 230, 154, 0.10);
+  color: #00E69A;
+}
+
+.login p {
+  font-family: Work Sans;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 2.8rem;
+  margin-top: 2rem;
+}
+
+.login a {
+  color: #35E198;
+}
+
+.login a:hover {
+  opacity: 0.5;
+}
+
+.img-login {
+  width: 40rem;
+  height: 40rem;
+}

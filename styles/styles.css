@@ -1,2 +1,6 @@
+/* global */
 @import './global.css';
+
+/* pages */
 @import './home.css';
+@import './login.css';
