@@ -80,12 +80,10 @@
 }
 .main .header .car-shop div {
   position: relative;
-  width: 200px;
 }
 .main .header .car-shop small {
   position: absolute;
   right: 0;
-  left: 4.8rem;
   top: -5px;
   display: flex;
   justify-content: end;
