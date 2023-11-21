@@ -36,12 +36,22 @@ function addToCart(event) {
   });
 
   try {
-    cart = JSON.parse(localStorage.getItem('cart'));
+    const storedCart = localStorage.getItem('cart');
+    cart = storedCart ? JSON.parse(storedCart) : [];
   } catch (error) {
   }
 
-  cart.push(purchaseInfo);
-  localStorage.setItem('cart', JSON.stringify(cart));
+  const isAlreadyInCart = cart.some(item => 
+    item.cryptoName === purchaseInfo.cryptoName && item.cryptoPrice === purchaseInfo.cryptoPrice
+  );
+
+  if (!isAlreadyInCart) {
+    cart.push(purchaseInfo);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log('Item adicionado ao carrinho:', purchaseInfo);
+  } else {
+    console.log('Item já está no carrinho:', purchaseInfo);
+  }
 }
 
 document.querySelector('.info-header button').addEventListener('click', (e) => addToCart(e));
