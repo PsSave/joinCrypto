@@ -15,6 +15,7 @@ document.getElementById('dash-card').addEventListener('click', function(event) {
 function updateInfo(cryptoName, cryptoDescription, event) {
   document.querySelector('.info-header h3').textContent = cryptoName;
   document.querySelector('.info-header p').textContent = cryptoDescription;
+
   document.querySelectorAll('.card').forEach(function(card) {
     card.classList.remove('active');
   });
@@ -30,7 +31,8 @@ function addToCart(event) {
     if(card.classList.contains('active')) {
       purchaseInfo = {
         cryptoName: card.querySelector('.tag p').textContent,
-        cryptoPrice: card.querySelector('span').textContent
+        cryptoPrice: card.querySelector('span').textContent,
+        cryptoImg: card.querySelector('img').src, // Corrigido de 'ing' para 'img'
       }
     }
   });
@@ -66,10 +68,14 @@ function updateCartCounter() {
   localStorage.setItem('cartCount', cartCount);
 }
 
-// Recuperar o valor do contador do localStorage e exibi-lo
 const storedCartCount = localStorage.getItem('cartCount');
 if (storedCartCount) {
   const cartCounterElement = document.querySelector('.car-shop small');
   cartCounterElement.textContent = storedCartCount;
 }
+
+document.querySelector('.fa-arrow-right-from-bracket').addEventListener('click', function() {
+  window.location.href = 'http://127.0.0.1:5500/login/index.html';
+});
 document.querySelector('.info-header button').addEventListener('click', (e) => addToCart(e));
+
