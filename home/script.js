@@ -23,7 +23,7 @@ function updateInfo(cryptoName, cryptoDescription, event) {
 }
 
 function addToCart(event) {
-  let purchaseInfo = {};
+  let purchaseInfo = null;
   let cart = []
 
   document.querySelectorAll('.card').forEach(function(card) {
@@ -55,11 +55,21 @@ function addToCart(event) {
   }
 }
 
+
 function updateCartCounter() {
   const cartCounterElement = document.querySelector('.car-shop small');
   let cartCount = parseInt(cartCounterElement.textContent) || 0;
   cartCount++;
   cartCounterElement.textContent = cartCount;
+
+  // Atualizar o localStorage com o novo valor do contador
+  localStorage.setItem('cartCount', cartCount);
 }
 
+// Recuperar o valor do contador do localStorage e exibi-lo
+const storedCartCount = localStorage.getItem('cartCount');
+if (storedCartCount) {
+  const cartCounterElement = document.querySelector('.car-shop small');
+  cartCounterElement.textContent = storedCartCount;
+}
 document.querySelector('.info-header button').addEventListener('click', (e) => addToCart(e));
