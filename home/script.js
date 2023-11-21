@@ -21,3 +21,27 @@ function updateInfo(cryptoName, cryptoDescription, event) {
   event.target.classList.add('active');
   document.querySelector('.info-header button').style.display = 'block';
 }
+
+function addToCart(event) {
+  let purchaseInfo = {};
+  let cart = []
+
+  document.querySelectorAll('.card').forEach(function(card) {
+    if(card.classList.contains('active')) {
+      purchaseInfo = {
+        cryptoName: card.querySelector('.tag p').textContent,
+        cryptoPrice: card.querySelector('span').textContent
+      }
+    }
+  });
+
+  try {
+    cart = JSON.parse(localStorage.getItem('cart'));
+  } catch (error) {
+  }
+
+  cart.push(purchaseInfo);
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+document.querySelector('.info-header button').addEventListener('click', (e) => addToCart(e));
