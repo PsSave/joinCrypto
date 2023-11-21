@@ -10,12 +10,12 @@
   overflow: hidden;
 }
 
-/* html {
+html {
   font-size: 62.5%;
-} */
+} 
 
 body {
-  /* font-size: 1.6rem; */
+  font-size: 1.6rem; 
   height: 100vh;
   width: 100vw;
   background: #1A1C1F;
