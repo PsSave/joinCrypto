@@ -10,10 +10,27 @@
 <body>
   <main class="main">
     <section class="cart">
-      
+      <div id="cartItemsContainer">
+        <div>
+          <img src="../assets/bitcoin.svg">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+        <p>Bitcoin</p>
+
+        <div class="price-cart">
+          <p>R$ 182.016,01</p>
+          <div>
+            <button onclick="removeCoins('${item.cryptoName}')">-</button>
+            <span>1</span>
+            <button onclick="addMoreCoins('${item.cryptoName}')">+</button>
+          </div>
+        </div>
+      </div>
     </section>
+
     <section class="check">
-      
+      <h2>Total: <span id="totalPrice">R$ 0,00</span></h2>
+      <button onclick="checkout()">Finalizar Compra</button>
     </section>
   </main>
   <script src="./script.js"></script>

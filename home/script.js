@@ -77,5 +77,10 @@ if (storedCartCount) {
 document.querySelector('.fa-arrow-right-from-bracket').addEventListener('click', function() {
   window.location.href = 'http://127.0.0.1:5500/login/index.html';
 });
+
+document.querySelector('.fa-solid fa-cart-shopping').addEventListener('click', function() {
+  window.location.href = 'file:///C:/Users/pedro/OneDrive/Área%20de%20Trabalho/PROJETOS/joinCrypto/carrinho/index.html';
+});
+
 document.querySelector('.info-header button').addEventListener('click', (e) => addToCart(e));
 
