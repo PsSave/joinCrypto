@@ -25,38 +25,43 @@ function updateInfo(cryptoName, cryptoDescription, event) {
 
 function addToCart(event) {
   let purchaseInfo = null;
-  let cart = []
+  let cart = [];
 
-  document.querySelectorAll('.card').forEach(function(card) {
-    if(card.classList.contains('active')) {
-      purchaseInfo = {
-        cryptoName: card.querySelector('.tag p').textContent,
-        cryptoPrice: card.querySelector('span').textContent,
-        cryptoImg: card.querySelector('img').src, // Corrigido de 'ing' para 'img'
-      }
-    }
-  });
+  const activeCard = document.querySelector('.card.active');
+  if (activeCard) {
+    purchaseInfo = {
+      cryptoName: activeCard.querySelector('.tag p').textContent,
+      cryptoPrice: activeCard.querySelector('span').textContent,
+      cryptoImg: activeCard.querySelector('img').src,
+    };
+  }
 
   try {
     const storedCart = localStorage.getItem('cart');
     cart = storedCart ? JSON.parse(storedCart) : [];
   } catch (error) {
+    console.error('Erro ao analisar o carrinho do localStorage:', error);
   }
 
-  const isAlreadyInCart = cart.some(item => 
-    item.cryptoName === purchaseInfo.cryptoName && item.cryptoPrice === purchaseInfo.cryptoPrice
-  );
+  if (purchaseInfo) {
+    const isAlreadyInCart = cart.some(
+      (item) =>
+        item.cryptoName === purchaseInfo.cryptoName &&
+        item.cryptoPrice === purchaseInfo.cryptoPrice
+    );
 
-  if (!isAlreadyInCart) {
-    cart.push(purchaseInfo);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCounter()
-    console.log('Item adicionado ao carrinho:', purchaseInfo);
+    if (!isAlreadyInCart) {
+      cart.push(purchaseInfo);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCounter();
+      console.log('Item adicionado ao carrinho:', purchaseInfo);
+    } else {
+      console.log('Item já está no carrinho:', purchaseInfo);
+    }
   } else {
-    console.log('Item já está no carrinho:', purchaseInfo);
+    console.error('Nenhum cartão ativo encontrado para adicionar ao carrinho.');
   }
 }
-
 
 function updateCartCounter() {
   const cartCounterElement = document.querySelector('.car-shop small');
@@ -76,10 +81,6 @@ if (storedCartCount) {
 
 document.querySelector('.fa-arrow-right-from-bracket').addEventListener('click', function() {
   window.location.href = 'http://127.0.0.1:5500/login/index.html';
-});
-
-document.querySelector('.fa-solid fa-cart-shopping').addEventListener('click', function() {
-  window.location.href = 'file:///C:/Users/pedro/OneDrive/Área%20de%20Trabalho/PROJETOS/joinCrypto/carrinho/index.html';
 });
 
 document.querySelector('.info-header button').addEventListener('click', (e) => addToCart(e));
