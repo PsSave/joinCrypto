@@ -45,3 +45,15 @@ function renderCartItems() {
   updateTotalPrice();
 }
 
+function updateTotalPrice() {
+  const cartItems = getCartItems();
+  const totalPriceElement = document.getElementById('totalPrice');
+
+  const totalPrice = cartItems.reduce((total, item) => {
+    const price = parseFloat(item.cryptoPrice.replace('R$ ', '').replace(',', ''));
+    return total + price;
+  }, 0);
+
+  totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
+}
+
