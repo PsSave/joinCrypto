@@ -7,6 +7,7 @@ function renderCartItems() {
   const cartItemsContainer = document.getElementById('cartItemsContainer');
   const cartItems = getCartItems();
 
+
   cartItemsContainer.innerHTML = '';
 
   cartItems.forEach(item => {
@@ -42,18 +43,37 @@ function renderCartItems() {
     cartItemsContainer.appendChild(itemContainer);
   });
 
+
   updateTotalPrice();
 }
+
 
 function updateTotalPrice() {
   const cartItems = getCartItems();
   const totalPriceElement = document.getElementById('totalPrice');
+
 
   const totalPrice = cartItems.reduce((total, item) => {
     const price = parseFloat(item.cryptoPrice.replace('R$ ', '').replace(',', ''));
     return total + price;
   }, 0);
 
+
   totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
 }
 
+function checkout() {
+  alert('Compra finalizada!');
+}
+
+
+function removeCoins(cryptoName) {
+  
+  renderCartItems();
+}
+
+function addMoreCoins(cryptoName) {
+  renderCartItems();
+}
+
+renderCartItems();
