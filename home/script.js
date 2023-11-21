@@ -48,10 +48,18 @@ function addToCart(event) {
   if (!isAlreadyInCart) {
     cart.push(purchaseInfo);
     localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCounter()
     console.log('Item adicionado ao carrinho:', purchaseInfo);
   } else {
     console.log('Item já está no carrinho:', purchaseInfo);
   }
+}
+
+function updateCartCounter() {
+  const cartCounterElement = document.querySelector('.car-shop small');
+  let cartCount = parseInt(cartCounterElement.textContent) || 0;
+  cartCount++;
+  cartCounterElement.textContent = cartCount;
 }
 
 document.querySelector('.info-header button').addEventListener('click', (e) => addToCart(e));
