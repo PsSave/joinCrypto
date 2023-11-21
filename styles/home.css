@@ -20,7 +20,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   flex: 1;
   width: 100%;
   background: linear-gradient(130deg, rgba(1, 24, 16, 0.685) 1.58%, rgb(25, 26, 29) 48%);
@@ -50,6 +50,7 @@
 }
 
 .main .header .info-header button {
+  display: none;
   border-radius: .8rem;
   background: linear-gradient(136deg, #1E272E -180.37%, #020202 244.92%);
   padding: 1rem;
@@ -75,6 +76,7 @@
   align-items: start;
   font-size: 2.5rem;
   gap: 1.2rem;
+  flex: 1;
 }
 
 .main .header .car-shop i {
@@ -146,6 +148,7 @@
   gap: 16px;
   flex: 1 0 0;
   transition: .2s ease-out;
+  cursor: pointer;
 }
 .card span {
   height: 2rem;
